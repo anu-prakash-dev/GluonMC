@@ -343,6 +343,7 @@ public class BasicView extends View {
         chapterCB.getSelectionModel().clearSelection();
         sectionsCB.getSelectionModel().clearSelection();
         questionsCB.getSelectionModel().clearSelection();
+        chapterList.clear();
     }
 
     //===============================QUESTION VIEW==================================\\
@@ -404,6 +405,7 @@ public class BasicView extends View {
         returnBtn.setOnAction((ActionEvent x) -> {
             showOptions();
             reinitializeQuestionView();
+            chapterList.clear();
             setCenter(selectionView());
         });
         nextBtn.setStyle("-fx-background-color: darkblue");
