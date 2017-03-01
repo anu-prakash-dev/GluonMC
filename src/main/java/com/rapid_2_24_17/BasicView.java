@@ -199,7 +199,8 @@ public class BasicView extends View {
         submitBtn.setStyle("-fx-background-color: darkblue");
         statisticsBtn.setStyle("-fx-background-color: darkblue");
 
-        // populate chapterList
+        // populate chapterList if empty
+        if (chapterList.isEmpty()) {
         try {
             URL url = new URL("https://morning-ridge-37817.herokuapp.com/chapterTitles.txt");
             Scanner scanner = new Scanner(url.openStream());
@@ -211,6 +212,7 @@ public class BasicView extends View {
             System.out.println("URL not working...");
         } catch (IOException ex) {
             System.out.println("IO Exception...");
+        }
         }
         chapterCB.setPromptText("Select chapter");
         chapterCB.setPrefSize(150, 20);
@@ -405,7 +407,6 @@ public class BasicView extends View {
         returnBtn.setOnAction((ActionEvent x) -> {
             showOptions();
             reinitializeQuestionView();
-            chapterList.clear();
             setCenter(selectionView());
         });
         nextBtn.setStyle("-fx-background-color: darkblue");
