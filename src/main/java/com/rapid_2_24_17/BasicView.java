@@ -122,10 +122,14 @@ public class BasicView extends View {
                 } else {
                     try {
                         ResultSet rs = pstmt.executeQuery("select * from " + userName + " where username = '" + userName + "' and password = '" + passWord + "';");
-                        System.out.println("Login successful!");
-                        //initialize and generate next view (selection view);
-                        reinitializeSelectionView(); // in case user returns to login view and relogs in
-                        setCenter(selectionView());
+                        if (!rs.next()) {
+                            notificationLabel.setText("Invalid username/password.");
+                        } else {
+                            System.out.println("Login successful!");
+                            //initialize and generate next view (selection view);
+                            reinitializeSelectionView(); // in case user returns to login view and relogs in
+                            setCenter(selectionView());
+                        }
                     } catch (SQLException ex) {
                         //if sqlException occurs username must not exist.
                         notificationLabel.setText("Invalid username/password.");
@@ -687,6 +691,7 @@ public class BasicView extends View {
             System.out.println("SQL Exception.");
         }
     }
+
     // Increment wrong_answer in database
     public void incrementWrongAnswer() {
         String chapNum = chapSelected.replaceAll("\\D+", "");
