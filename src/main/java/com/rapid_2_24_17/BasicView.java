@@ -687,9 +687,7 @@ public class BasicView extends View {
             System.out.println("SQL Exception.");
         }
     }
-//reinitailize selection view? chapterlist wise
     // Increment wrong_answer in database
-
     public void incrementWrongAnswer() {
         String chapNum = chapSelected.replaceAll("\\D+", "");
         try {
@@ -726,7 +724,6 @@ public class BasicView extends View {
         returnBtn.setStyle("-fx-background-color: darkblue");
         returnBtn.setOnAction((ActionEvent x) -> {
             showOptions();
-            //reinitalize statistics label for next statistics press
             reinitializeQuestionView();
             setCenter(selectionView());
         });
@@ -779,7 +776,6 @@ public class BasicView extends View {
         }
         display += "TOTAL CORRECT: " + correctTotal + "\nTOTAL WRONG: " + wrongTotal;
         return display;
-        //  System.out.println(display);
     }
 
     //===============================APP_BAR=====================================\\
