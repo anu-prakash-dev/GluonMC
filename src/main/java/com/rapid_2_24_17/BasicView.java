@@ -168,8 +168,8 @@ public class BasicView extends View {
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("Driver loaded");
             // Establish a connection
-           // conn = DriverManager.getConnection("jdbc:mysql://liang.armstrong.edu:3306/team2", "team2", "tiger");
-            conn = DriverManager.getConnection("jdbc:mysql://us-cdbr-iron-east-04.cleardb.net:3306/heroku_e776c68d59d1bdf?reconnect=true", "b1c154c0428d00", "30a2e4ed");
+            conn = DriverManager.getConnection("jdbc:mysql://liang.armstrong.edu:3306/team2", "team2", "tiger");
+           // conn = DriverManager.getConnection("jdbc:mysql://us-cdbr-iron-east-04.cleardb.net:3306/heroku_e776c68d59d1bdf?reconnect=true", "b1c154c0428d00", "30a2e4ed");
             System.out.println("Database connected");
             // Create a Statement
             pstmt = conn.prepareStatement("");
